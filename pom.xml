@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>models</name>
-	<description>models for api-airports</description>
+	<description>models for API tp5</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

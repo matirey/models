@@ -1,22 +1,22 @@
 package com.utn.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
+import java.time.LocalDate;
 
 /**
  * Created by Marcosp on 23/5/2018.
  */
 @Entity
-@Setter
-@Getter
-@EqualsAndHashCode
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "prices")
 public class Prices {
 
@@ -26,7 +26,6 @@ public class Prices {
     @Column(name = "idprice")
     private long id;
 
-    @NotEmpty(message = "Price is required.")
     @Column(name = "price")
     private Float price;
 
@@ -35,11 +34,9 @@ public class Prices {
     @OnDelete(action = OnDeleteAction.CASCADE)
     public CabinsForRoad cabinsforroad;
 
-    @NotEmpty(message = "Year is required.")
-    @Column(name = "year")
-    private int year;
+    @Column(name = "fromdate")
+    private LocalDate fromdate;
 
-    @NotEmpty(message = "Month is required.")
-    @Column(name = "month")
-    private int month;
+    @Column(name = "todate")
+    private LocalDate todate;
 }
